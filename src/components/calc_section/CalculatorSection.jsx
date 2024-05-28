@@ -66,7 +66,6 @@ const CalculatorSection = () => {
         </div>
       </div>
       {/*Result section */}
-
       <Result_Section billDetails={result} />
     </div>
   )

@@ -56,11 +56,12 @@ const Generic_Section = ({ data, setResult }) => {
     setBillingCycle(event.target.value)
   }
 
-  // Handle phse
+  // Handle phase
   const handlephase = (event) => {
     setPhase(event.target.value)
   }
 
+  //for calculating the price
   const calculateBill = () => {
     // Validation
     if (tariff === '') {
@@ -87,6 +88,7 @@ const Generic_Section = ({ data, setResult }) => {
   
     const energyCharge = units * 3.25;
   
+    //single phase and three phase had a diffrenet prices
     if (phase === 'single_phase') {
       const roundPercentage = parseFloat(singlePhase.round) / 100;
       const dutyPercentage = parseFloat(singlePhase.duty) / 100;
