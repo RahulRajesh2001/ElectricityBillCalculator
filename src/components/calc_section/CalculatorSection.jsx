@@ -26,18 +26,18 @@ const CalculatorSection = () => {
   const [result, setResult] = useState({})
 
   return (
-    <div className='w-[100%] h-full  flex justify-center items-center gap-10'>
-      <div className='w-[40%] h-[500px] shadow-2xl rounded-sm '>
+    <div className='w-[100%] h-full  flex md:flex-row vvsm:flex-col justify-center items-center gap-10'>
+      <div className='md:w-[40%] vvsm:w-[90%] vvsm:h-[500px] shadow-2xl rounded-sm  '>
         {/*Top Section*/}
         <div className='h-[50px] bg-[#0395d9] flex items-center rounded-t-sm'>
-          <div className='ml-5 text-xl font-semibold text-[#fff]'>
+          <div className='ml-5 vvsm:text-[15px] md:text-xl font-semibold text-[#fff]'>
             Electricity Bill Calculator
           </div>
         </div>
         {/*Sider*/}
         <div className='h-[80px]  flex justify-center items-center '>
           <div
-            className={`w-[45%] h-[50%] cursor-pointer rounded-sm flex justify-center items-center ${
+            className={`vvsm:text-[12px] md:text-[14px] w-[45%] h-[50%] cursor-pointer rounded-sm flex justify-center items-center ${
               slide === 'generic'
                 ? 'border border-b-0 '
                 : 'border border-t-0 border-l-0 border-r-0 text-[#007bff]'
@@ -47,7 +47,7 @@ const CalculatorSection = () => {
             Generic
           </div>
           <div
-            className={`w-[45%] h-[50%] cursor-pointer rounded-sm flex justify-center items-center ${
+            className={`vvsm:text-[12px] md:text-[14px] w-[45%] h-[50%] cursor-pointer rounded-sm flex justify-center items-center ${
               slide === 'advanced'
                 ? 'border border-b-0 '
                 : 'border-t-0 border border-r-0 border-l-0 text-[#007bff]'
@@ -57,7 +57,7 @@ const CalculatorSection = () => {
             Advanced
           </div>
         </div>
-        <div className='flex justify-center items-center h-[73%]'>
+        <div className='flex justify-center items-center h-[73%] '>
           {slide === 'generic' ? (
             <Generic_Section data={data} setResult={setResult} />
           ) : (

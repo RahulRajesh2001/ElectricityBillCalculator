@@ -190,54 +190,60 @@ const Generic_Section = ({ data, setResult }) => {
   return (
     <div className='w-[92%] h-[90%] flex flex-col justify-around '>
       {/* Tariff box */}
-      <div className='flex justify-between items-center '>
-        <div className='font-semibold'>Tariff</div>
-        <FormControl>
+      <div className='flex justify-between items-center vsm:w-full md:w-auto'>
+        <div className='font-semibold w-[20%] vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Tariff</div>
+        <div className='w-[80%]'>
+        <FormControl className='w-[100%]'>
           <Select
             value={tariff}
             onChange={handleTariffChange}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
-            sx={{ width: '400px', height: '40px' }}
+            className='vvsm:h-[35px] md:h-[40px] w-[100%]'
           >
             <MenuItem value=''>
-              <em>None</em>
+              <em className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>None</em>
             </MenuItem>
             {data?.map((item) => (
-              <MenuItem key={item._id} value={item._id}>
+              <MenuItem className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]' key={item._id} value={item._id}>
                 {item.tariff}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
+        </div>
       </div>
 
       {/* Purpose box */}
-      <div className='flex justify-between items-center '>
-        <div className='font-semibold'>Purpose</div>
-        <FormControl>
+      <div className='flex justify-between items-center vsm:w-full md:w-auto '>
+        <div className='font-semibold vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Purpose</div>
+        <div className='w-[80%]'>
+        <FormControl className='w-[100%]'>
           <Select
             value={purpose}
             onChange={handlePurposeChange}
             displayEmpty
             inputProps={{ 'aria-label': 'Without label' }}
-            sx={{ width: '400px', height: '40px' }}
+            className=' vvsm:h-[35px] md:h-[40px] w-[100%]'
           >
             <MenuItem value=''>
-              <em>None</em>
+              <em className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>None</em>
             </MenuItem>
             {options.map((option, index) => (
-              <MenuItem key={index} value={option}>
+              <MenuItem className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]' key={index} value={option}>
                 {option}
               </MenuItem>
             ))}
           </Select>
         </FormControl>
+        </div>
+        
       </div>
 
       {/* Billing cycle box radio button */}
-      <div className='flex justify-between items-center '>
-        <div className='font-semibold'>Billing Cycle</div>
+      <div className='flex justify-between items-center vsm:w-full md:w-auto'>
+        <div className='font-semibold vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Billing Cycle</div>
+        <div className='w-[80%]'>
         <RadioGroup
           row
           value={billingCycle}
@@ -247,51 +253,58 @@ const Generic_Section = ({ data, setResult }) => {
             <FormControlLabel
               value='60'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label='2 Months'
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>2 Months</span>}
             />
             <FormControlLabel
               value='30'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label='1 Month'
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>1 Month</span>}
             />
           </div>
         </RadioGroup>
+        </div>
+        
       </div>
 
       {/* Consumed units box */}
-      <div className='flex justify-between items-center '>
-        <div className='font-semibold'>Consumed Units</div>
+      <div className='flex justify-between items-center vsm:w-full md:w-auto'>
+        <div className='font-semibold vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Consumed Units</div>
+        <div className='w-[80%]'>
         <input
-          className='border w-[400px] h-[40px] rounded-md border-[#ced4da]'
+          className='border h-[40px] w-[100%] rounded-md border-[#ced4da] mr-3'
           defaultValue=''
           onChange={(e) => setUnits(e.target.value)}
         />
+        </div>
+        
       </div>
 
       {/* phase box*/}
-      <div className='flex justify-between items-center '>
-        <div className='font-semibold'>Phase</div>
+      <div className='flex justify-between items-center vsm:w-full md:w-auto'>
+        <div className='font-semibold vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Phase</div>
+        <div className='w-[80%]'>
         <RadioGroup row value={phase} onChange={handlephase}>
           <div className='w-[400px]'>
             <FormControlLabel
               value='single_phase'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label='Single phase'
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>2 Months</span>}
             />
             <FormControlLabel
               value='three_phase'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label='Three phase'
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>1 Month</span>}
             />
           </div>
         </RadioGroup>
+        </div>
       </div>
 
       {/* button box */}
       <div className='flex items-center'>
         <button
           onClick={calculateBill}
-          className='w-[90px] h-[40px] border rounded-lg border-[#007bff] text-[#007bff]'
+          className='md:w-[90px] md:h-[40px] vvsm:w-[70px] vvsm:h-[30px] border rounded-lg border-[#007bff] text-[#007bff] vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'
         >
           Submit
         </button>
