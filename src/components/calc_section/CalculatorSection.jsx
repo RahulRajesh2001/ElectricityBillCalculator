@@ -9,9 +9,10 @@ const CalculatorSection = () => {
   const [data, setData] = useState()
   useEffect(() => {
     axios
-      .get('http://localhost:3000/tarif-details')
-      .then((res) => {
+      .get('https://electricitycalculator.theneom.shop/tarif-details')
+      .then((res) => {  
         setData(res.data)
+        console.log(res.data)
       })
       .catch((err) => {
         console.log(err)
