@@ -6,7 +6,7 @@ const App = () => {
   return (
     <div className='h-screen w-[100%]'>
       <NavBar />
-      <div className='flex justify-center items-center   gap-10'>
+      <div className='flex justify-center items-center gap-10 mt-8'>
         <CalculatorSection />
       </div>
     </div>
