@@ -235,7 +235,7 @@ const Generic_Section = ({ data, setResult }) => {
         </FormControl>
       </div>
 
-      {/* Billing cycle box radio buttons */}
+      {/* Billing cycle box radio button */}
       <div className='flex justify-between items-center '>
         <div className='font-semibold'>Billing Cycle</div>
         <RadioGroup
