@@ -188,7 +188,7 @@ const Generic_Section = ({ data, setResult }) => {
   setResult(billDetails)
 
   return (
-    <div className='w-[92%] h-[90%] flex flex-col justify-around '>
+    <div className='w-[92%] h-[90%] flex flex-col justify-around  items-center'>
       {/* Tariff box */}
       <div className='flex justify-between items-center vsm:w-full md:w-auto'>
         <div className='font-semibold w-[20%] vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Tariff</div>
