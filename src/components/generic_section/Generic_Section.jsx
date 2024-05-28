@@ -288,12 +288,12 @@ const Generic_Section = ({ data, setResult }) => {
             <FormControlLabel
               value='single_phase'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>2 Phase</span>}
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Single Phase</span>}
             />
             <FormControlLabel
               value='three_phase'
               control={<Radio sx={{ transform: 'scale(0.7)' }} />}
-              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>1 Phase</span>}
+              label={<span className='vvsm:text-[13px] ssm:text-[14px] md:text-[16px]'>Three Phase</span>}
             />
           </div>
         </RadioGroup>
