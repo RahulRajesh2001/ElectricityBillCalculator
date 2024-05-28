@@ -3,6 +3,7 @@ import Generic_Section from '../generic_section/Generic_Section'
 import Advanced_Section from '../advanced_section/Advanced_Section'
 import axios from 'axios'
 import Result_Section from '../result_sectioin/Result_Section'
+import Declaration from '../declaration/Declaration'
 
 const CalculatorSection = () => {
   //fetching tariff details from backend
@@ -10,7 +11,7 @@ const CalculatorSection = () => {
   useEffect(() => {
     axios
       .get('https://electricitycalculator.theneom.shop/tarif-details')
-      .then((res) => {  
+      .then((res) => {
         setData(res.data)
         console.log(res.data)
       })
@@ -24,6 +25,15 @@ const CalculatorSection = () => {
 
   //taking the result
   const [result, setResult] = useState({})
+
+  console.log('result', result)
+
+  if (result === null) {
+    localStorage.setItem('declaration', 'true')
+  } else {
+    localStorage.setItem('declaration', 'false')
+  }
+  let flag = localStorage.getItem('declaration')
 
   return (
     <div className='w-[100%] h-full  flex md:flex-row vvsm:flex-col justify-center items-center gap-10'>
@@ -66,7 +76,11 @@ const CalculatorSection = () => {
         </div>
       </div>
       {/*Result section */}
-      <Result_Section billDetails={result} />
+      {flag === 'true' ? (
+        <Declaration />
+      ) : (
+        <Result_Section billDetails={result} />
+      )}
     </div>
   )
 }

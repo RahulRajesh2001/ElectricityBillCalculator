@@ -1,12 +1,6 @@
 import React, { useEffect } from 'react';
 
 const Result_Section = ({ billDetails }) => {
-  useEffect(() => {
-    localStorage.setItem("declaration", "true");
-    return () => {
-      localStorage.setItem("declaration", "false");
-    };
-  }, []);
   return (
     billDetails ? (
       <div className='md:w-[30%] vvsm:w-[90%] h-[500px] shadow-2xl rounded-sm'>
