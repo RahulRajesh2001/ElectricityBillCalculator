@@ -25,7 +25,7 @@ const Generic_Section = ({ data, setResult }) => {
     meter_rent: 12,
     meter_rent_central_gst: 1.08,
     meter_rent_state_gst: 1.08,
-    subcidy: 40,
+    subsidy: 40,
   }
   const threePhase = {
     round: 0.46,

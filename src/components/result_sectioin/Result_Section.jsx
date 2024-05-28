@@ -14,43 +14,43 @@ const Result_Section = ({ billDetails }) => {
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Energy Charge (EC)*</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.energyCharge || 0}
+            {billDetails?.energyCharge || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Duty</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.currentDuty?.toFixed(3) || 0}
+            {billDetails?.currentDuty?.toFixed(3) || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Fixed Charge (FC)*</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.adjustedFixedCharge || 0}
+            {billDetails?.adjustedFixedCharge || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Meter Rent</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.adjustedMeterRent || 0}
+            {billDetails?.adjustedMeterRent || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Meter Rent Central GST</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.adjustedMeterRentCentralGST || 0}
+            {billDetails?.adjustedMeterRentCentralGST || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-green-600 text-[15px]'>FC Subsidy</div>
           <div className='text-green-600 text-[15px]'>
-            -{billDetails.adjustedSubsidy || 0}
+            -{billDetails?.adjustedSubsidy || 0}
           </div>
         </div>
         <div className='h-[50px] border-b flex justify-between items-center px-4'>
           <div className='text-[#212529] text-[15px]'>Meter Rent State GST</div>
           <div className='text-[#212529] text-[15px]'>
-            {billDetails.adjustedMeterRentStateGST || 0}
+            {billDetails?.adjustedMeterRentStateGST || 0}
           </div>
         </div>
         <div className='h-[90px] bg-[#0395d9] flex justify-between items-center px-4'>
@@ -64,7 +64,7 @@ const Result_Section = ({ billDetails }) => {
             </div>
           </div>
           <div className='text-[#fff] font-semibold text-[15px]'>
-            {Math.floor(billDetails.total)}.00
+            {Math.floor(billDetails?.total)}.00
           </div>
         </div>
       </div>
