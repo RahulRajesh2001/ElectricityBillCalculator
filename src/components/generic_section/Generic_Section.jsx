@@ -61,54 +61,57 @@ const Generic_Section = ({ data, setResult }) => {
     setPhase(event.target.value)
   }
 
-  // Calculate bill based on consumed units
   const calculateBill = () => {
-    //validataion
+    // Validation
     if (tariff === '') {
-      alert('Select the tariff !')
+      alert('Select the tariff !');
+      return; 
     }
-
+  
     if (purpose === '') {
-      alert('Select the purpose !')
+      alert('Select the purpose !');
+      return;
     }
-
+  
     if (consumedUnits === '' || isNaN(consumedUnits)) {
-      alert('Please enter consumed units!')
+      alert('Please enter consumed units!');
+      return;
     }
-
-    const units = parseFloat(consumedUnits)
-
+  
+    const units = parseFloat(consumedUnits);
+  
     if (isNaN(units)) {
-      alert('Please enter a valid number for consumed units.')
-      return
+      alert('Please enter a valid number for consumed units.');
+      return; 
     }
-    const energyCharge = units * 3.25
-
+  
+    const energyCharge = units * 3.25;
+  
     if (phase === 'single_phase') {
-      const roundPercentage = parseFloat(singlePhase.round) / 100
-      const dutyPercentage = parseFloat(singlePhase.duty) / 100
-
-      const currentRound = energyCharge * roundPercentage
-      const currentDuty = energyCharge * dutyPercentage
-
-      const isOneMonthBilling = billingCycle === '30'
-
+      const roundPercentage = parseFloat(singlePhase.round) / 100;
+      const dutyPercentage = parseFloat(singlePhase.duty) / 100;
+  
+      const currentRound = energyCharge * roundPercentage;
+      const currentDuty = energyCharge * dutyPercentage;
+  
+      const isOneMonthBilling = billingCycle === '30';
+  
       const adjustedFixedCharge = isOneMonthBilling
         ? singlePhase.fixed_charge / 2
-        : singlePhase.fixed_charge
+        : singlePhase.fixed_charge;
       const adjustedMeterRent = isOneMonthBilling
         ? singlePhase.meter_rent / 2
-        : singlePhase.meter_rent
+        : singlePhase.meter_rent;
       const adjustedMeterRentCentralGST = isOneMonthBilling
         ? singlePhase.meter_rent_central_gst / 2
-        : singlePhase.meter_rent_central_gst
+        : singlePhase.meter_rent_central_gst;
       const adjustedMeterRentStateGST = isOneMonthBilling
         ? singlePhase.meter_rent_state_gst / 2
-        : singlePhase.meter_rent_state_gst
+        : singlePhase.meter_rent_state_gst;
       const adjustedSubsidy = isOneMonthBilling
-        ? singlePhase.subcidy / 2
-        : singlePhase.subcidy
-
+        ? singlePhase.subsidy / 2
+        : singlePhase.subsidy;
+  
       // Calculate total amount
       const total =
         energyCharge +
@@ -118,8 +121,8 @@ const Generic_Section = ({ data, setResult }) => {
         adjustedMeterRent +
         adjustedMeterRentCentralGST +
         adjustedMeterRentStateGST -
-        adjustedSubsidy
-
+        adjustedSubsidy;
+  
       const singlePhaseResult = {
         energyCharge,
         currentDuty,
@@ -130,30 +133,30 @@ const Generic_Section = ({ data, setResult }) => {
         adjustedMeterRentStateGST,
         adjustedSubsidy,
         total,
-      }
-      setBillDetails(singlePhaseResult)
+      };
+      setBillDetails(singlePhaseResult);
     } else if (phase === 'three_phase') {
-      const roundPercentage = parseFloat(threePhase.round) / 100
-      const dutyPercentage = parseFloat(threePhase.duty) / 100
-
-      const currentRound = energyCharge * roundPercentage
-      const currentDuty = energyCharge * dutyPercentage
-
-      const isOneMonthBilling = billingCycle === '30'
-
+      const roundPercentage = parseFloat(threePhase.round) / 100;
+      const dutyPercentage = parseFloat(threePhase.duty) / 100;
+  
+      const currentRound = energyCharge * roundPercentage;
+      const currentDuty = energyCharge * dutyPercentage;
+  
+      const isOneMonthBilling = billingCycle === '30';
+  
       const adjustedFixedCharge = isOneMonthBilling
         ? threePhase.fixed_charge / 2
-        : threePhase.fixed_charge
+        : threePhase.fixed_charge;
       const adjustedMeterRent = isOneMonthBilling
         ? threePhase.meter_rent / 2
-        : threePhase.meter_rent
+        : threePhase.meter_rent;
       const adjustedMeterRentCentralGST = isOneMonthBilling
         ? threePhase.meter_rent_central_gst / 2
-        : threePhase.meter_rent_central_gst
+        : threePhase.meter_rent_central_gst;
       const adjustedMeterRentStateGST = isOneMonthBilling
         ? threePhase.meter_rent_state_gst / 2
-        : threePhase.meter_rent_state_gst
-
+        : threePhase.meter_rent_state_gst;
+  
       // Calculate total amount
       const total =
         energyCharge +
@@ -162,8 +165,8 @@ const Generic_Section = ({ data, setResult }) => {
         adjustedFixedCharge +
         adjustedMeterRent +
         adjustedMeterRentCentralGST +
-        adjustedMeterRentStateGST
-
+        adjustedMeterRentStateGST;
+  
       const threePhaseResult = {
         energyCharge,
         currentDuty,
@@ -172,12 +175,12 @@ const Generic_Section = ({ data, setResult }) => {
         adjustedMeterRent,
         adjustedMeterRentCentralGST,
         adjustedMeterRentStateGST,
-        adjustedSubsidy,
         total,
-      }
-      setBillDetails(threePhaseResult)
+      };
+      setBillDetails(threePhaseResult);
     }
-  }
+  };
+  
 
   //passing the result
   setResult(billDetails)
